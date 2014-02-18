@@ -11,10 +11,10 @@
 
  /*  [include id="XXX" slug="" show_title="true" title_wrapper="h2" recursion="strict" ]  */
 
-	ini_set('display_errors',1);
-	error_reporting(E_ALL);
 	function id_exists($id){ return $wpdb->get_var("SELECT count(*) FROM {$wpdb->posts} WHERE ID = '{$id}'") ? true : false; }
+
 	$included = array();
+
 	add_shortcode('include', function($atts){
 		global $included,$wpdb,$post;
 		$included[get_the_ID()] = true;
