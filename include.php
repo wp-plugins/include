@@ -8,9 +8,6 @@
  * Author URI: http://cngann.com
  * License: GPL2
  */
-
- /*  [include id="XXX" slug="" show_title="true" title_wrapper="h2" recursion="strict" ]  */
-
 	function id_exists($id){ return $wpdb->get_var("SELECT count(*) FROM {$wpdb->posts} WHERE ID = '{$id}'") ? true : false; }
 
 	$included = array();
@@ -38,5 +35,4 @@
 		$included[$id] = false;
 		return $r;
 	});
-
 ?>
