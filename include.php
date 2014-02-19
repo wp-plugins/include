@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI:http://www.cngann.com/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 1.1
+ * Version: 1.2
  * Author: Mike Flynn, C.N.Gann Technology Group, LLC
  * Author URI: http://cngann.com
  * License: GPL2
