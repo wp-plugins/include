@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Include
- * Plugin URI:
- * Description:
- * Version: 1.0
+ * Plugin URI:http://www.cngann.com/
+ * Description: Include a page, post, activity, or other query-object into another.
+ * Version: 1.1
  * Author: Mike Flynn, C.N.Gann Technology Group, LLC
  * Author URI: http://cngann.com
  * License: GPL2
