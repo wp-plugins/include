@@ -3,7 +3,7 @@ Contributors: mflynn, cngann
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages,
 Requires at least: 3.8.1
 Tested up to: 3.8.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
