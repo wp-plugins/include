@@ -3,7 +3,7 @@ Contributors: mflynn, cngann
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages,
 Requires at least: 3.8.1
 Tested up to: 3.8.1
-Stable tag: 1.1.1
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 **Requires PHP version 5.3.0 or Higher**
 
-`[include id="XXX" show_title="true" title_wrapper="h2" recursion="weak" ]`
+`[include id="XXX" show_title="true" title_wrapper="h2" hr="n" recursion="weak" ]`
 
 Recursion options:
 * strict: only show first page, do not run `[include]` if it's included
