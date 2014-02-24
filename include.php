@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 1.3
+ * Version: 1.4
  * Author: mflynn, cngann
  * Author URI: http://cngann.com
  * License: GPL2
