@@ -3,12 +3,12 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 1.5
+ * Version: 1.5.1
  * Author: mflynn, cngann
  * Author URI: http://cngann.com
  * License: GPL2
  */
-	function id_exists($id){ return $wpdb->get_var("SELECT count(*) FROM {$wpdb->posts} WHERE ID = '{$id}'") ? true : false; }
+	function id_exists($id){  global $wpdb; return $wpdb->get_var("SELECT count(*) FROM {$wpdb->posts} WHERE ID = '{$id}'") ? true : false; }
 
 	$included = array(  );
 
