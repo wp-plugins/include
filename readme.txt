@@ -3,7 +3,7 @@ Contributors: mflynn, cngann
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get
 Requires at least: 2.5
 Tested up to: 3.8.1
-Stable tag: 1.5.1
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,9 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 == Changelog ==
 
+= 1.6 =
+* Added anchor tag
+
 = 1.4 =
 * Added Documentation
 
@@ -61,6 +64,4 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 * First Check-In
 
 == Installation ==
-
-1. Upload `include-shortcode` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress

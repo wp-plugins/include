@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 1.5.1
+ * Version: 1.6
  * Author: mflynn, cngann
  * Author URI: http://cngann.com
  * License: GPL2
@@ -21,7 +21,7 @@
 		if($id &&  ! id_exists( $id )) return "";  else if(!$id && !$slug) return ""; else if($slug) $id = $wpdb->get_var("SELECT ID FROM {$wpdb->posts} WHERE post_name = '{$slug}'");
 		if(!$id) return ""; if(empty($included[$id])) $included[$id] = ''; if($included[$id] === true) return ""; $included[$id] = true;
 		$op = clone $post; $post = get_post($id); setup_postdata($post); $c = $post->post_content; $t = $post->post_title;
-		$r = ($hr ? "<hr />" : "") . ($st ? ( $twe ? "<" . $twe . ($twc ? " class=\"" . $twc . "\" " : "") . ">" . $t . "</".$twe.">" : $t ) : "") . do_shortcode( wpautop( (strtolower($re) == "strict" ? preg_replace("/\[include[^\]]*\]/im","",$c) : $c), true ) );
+		$r = ($hr ? "<hr />" : "") . ($st ? ( $twe ? "<" . $twe . ($twc ? " class=\"" . $twc . "\" " : "") . ">" . $t . "</".$twe.">" : $t ) : "") ."<a class='anchor' name='".$post->post_name."'></a>". do_shortcode( wpautop( (strtolower($re) == "strict" ? preg_replace("/\[include[^\]]*\]/im","",$c) : $c), true ) );
 		$post = clone $op; setup_postdata($post); unset($included[$id]);
 		return $r;
 	}
