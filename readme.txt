@@ -3,7 +3,7 @@ Contributors: mflynn, cngann
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get
 Requires at least: 2.5
 Tested up to: 3.8.1
-Stable tag: 1.7
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,9 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 * Add an options panel that allows the user to change the default attributes: show_title, title_wrapper_elem, title_wrapper_class, hr, recursion, and the wrap attributes once that's been completed
 
 == Changelog ==
+
+= 1.7.1 =
+* Bugfix for site php error
 
 = 1.7 =
 * Added Full PHPdoc Documentation and Line-By-Line comments for what's happening
