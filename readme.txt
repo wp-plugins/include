@@ -3,7 +3,7 @@ Contributors: mflynn, cngann
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get
 Requires at least: 2.5
 Tested up to: 3.8.1
-Stable tag: 1.5.1
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,21 +29,37 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 *Example*
 
-`[include id="XXX" show_title="true" title_wrapper="h2" hr="n" recursion="weak" ]`
+`[include id="XXX" show_title="true" title_wrapper_elem="h2" title_wrapper_class="include-title" hr="n" recursion="weak" ]`
+`[include slug="hello-world"]`
 
 A shortcode that includes other posts / pages with no nesting of the shortcode, to allow for multiple pages to call each other so that they display their chunks in different orders.
 
 = Future Plans =
 
-* Figure out how to include the page-template (if it exists) - with the post, but without header or footer
 * TinyMCE Integration - Waiting on WP 3.9 (TinyMCE v4)
  * Buttons to create/edit shortcode
  * Have the editor display included content, and update included pages on save
-* Include all child pages in order
-* Include all child pages in order as tabs
-* Include all child pages in order as slides
+* Add button/modal like "Add Media" to generate shortcodes for the user and place them in the editor
+* Add attribute to wrap content in a div and an attribute for that divs class
+* Add a new shortcode to Include all child pages of current page in order named [include_children]
+* Add an options panel that allows the user to change the default attributes: show_title, title_wrapper_elem, title_wrapper_class, hr, recursion, and the wrap attributes once that's been completed
 
 == Changelog ==
+
+= 2.0b =
+* Addition of wrap attribute
+* Addition of wrap_class attribute
+* Addition of include_children shortcode
+
+
+= 1.7.1 =
+* Bugfix for site php error
+
+= 1.7 =
+* Added Full PHPdoc Documentation and Line-By-Line comments for what's happening
+
+= 1.6 =
+* Added anchor tag
 
 = 1.4 =
 * Added Documentation
@@ -59,8 +75,4 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 = 1.0 =
 * First Check-In
-
-== Installation ==
-
-1. Upload `include-shortcode` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
