@@ -3,7 +3,7 @@ Contributors: mflynn, cngann
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get
 Requires at least: 2.5
 Tested up to: 3.8.1
-Stable tag: 1.7.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,11 +40,13 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
  * Buttons to create/edit shortcode
  * Have the editor display included content, and update included pages on save
 * Add button/modal like "Add Media" to generate shortcodes for the user and place them in the editor
-* Add attribute to wrap content in a div and an attribute for that divs class
-* Add a new shortcode to Include all child pages of current page in order named [include_children]
-* Add an options panel that allows the user to change the default attributes: show_title, title_wrapper_elem, title_wrapper_class, hr, recursion, and the wrap attributes once that's been completed
 
 == Changelog ==
+
+= 2.0 =
+* Addition of wrap attribute
+* Addition of wrap_class attribute
+* Addition of include_children shortcode
 
 = 1.7.1 =
 * Bugfix for site php error
