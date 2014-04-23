@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 2.0
+ * Version: 2.1
  * Author: mflynn, cngann, bmcsweeney
  * Author URI: http://cngann.com
  * License: GPL2
@@ -87,7 +87,6 @@
                 /* Work the Magic */
 
                     query_posts(array('page_id' => $id)); 									// Generate a new $wp_query object for the page to include
-                    apply_filters('the_posts', array()); 									// TODO: Find out if this does anything, remove it if it doesn't
                     the_post(); 												// Load the Post into $post
                     $c = get_the_content(); 										// Get the Content
                     $c = strtolower($recursion) == "strict" ? preg_replace( "/\[include[^\]]*\]/im", "", $c ) : $c;
