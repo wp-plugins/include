@@ -1,5 +1,5 @@
 === Include ===
-Contributors: mflynn, cngann, Clear_Code, bmcsweeney
+Contributors: mflynn, cngann, Clear_Code, bmcswee
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, 
 Requires at least: 2.5
 Tested up to: 3.9.1

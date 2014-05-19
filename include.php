@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
  * Version: 2.2
- * Author: mflynn, cngann, Clear_Code, bmcsweeney
+ * Author: mflynn, cngann, Clear_Code, bmcswee
  * Author URI: http://clearcode.info
  * License: GPL2
  */
