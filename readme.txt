@@ -3,7 +3,7 @@ Contributors: mflynn, cngann, Clear_Code, bmcswee
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, 
 Requires at least: 2.5
 Tested up to: 3.9.1
-Stable tag: 2.2
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,10 +17,14 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 * id: the page/post/etc id to use
 * slug: the page slug to use to find the ID
-* show_title: set to anything other than "" to show the title of the included page
-* title_wrapper_elem: the type of element to wrap the title with
+* title: the type of element to wrap the title with.  If set to "" no title will be displayed.
  * Default: h2
-* title_wrapper_class: a class to assign to the title wrap
+* title_class: a class to assign to the title
+* wrap: the type of element to wrap the entire include area with.  If set to "" no wrap will be applied.
+ * Default: div
+* wrap_class: a class you want assigned to the wrap.
+ * Default: 'included'
+* hr: Display a hr before the include.  Set to "" to not display the hr.
 * recursion:
  * Options:
   * strict: only show first page, do not run `[include]` if it's included
@@ -29,12 +33,30 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 *Example*
 
-`[include id="XXX" show_title="true" title_wrapper_elem="h2" title_wrapper_class="include-title" hr="n" recursion="weak" ]`
+`[include id="XXX" title="true" title_elem="h2" title_class="include-title" hr="" recursion="weak" wrap="article" wrap_class="news"]`
 `[include slug="hello-world"]`
 
 A shortcode that includes other posts / pages with no nesting of the shortcode, to allow for multiple pages to call each other so that they display their chunks in different orders.
 
 **Shortcode: `[include_children]`**
+
+*Parameters*
+
+* id: the page/post/etc id to use
+* slug: the page slug to use to find the ID
+* title: the type of element to wrap the title with.  If set to "" no title will be displayed.
+ * Default: h2
+* title_class: a class to assign to the title
+* wrap: the type of element to wrap the entire include area with.  If set to "" no wrap will be applied.
+ * Default: div
+* wrap_class: a class you want assigned to the wrap.
+ * Default: 'included'
+* hr: Display a hr before the include.  Set to "" to not display the hr.
+* recursion:
+ * Options:
+  * strict: only show first page, do not run `[include]` if it's included
+  * weak: only filter out shortcodes with the same id as the current shortcode to prevent infinate loops
+ * Default: weak
 
 Same as Include, except that if no ID is given, it includes all child pages of the current page, in order.
 If an ID is given it includes the child pages of that page, in order.
@@ -48,9 +70,13 @@ If an ID is given it includes the child pages of that page, in order.
 
 == Screenshots ==
 
-1. The Include Plugin default Options Panel.  Set the default options for the includes here.
+1. The Include Plugin default Options Panel.  Set the default options for the includes here.  Located at Tools > Include
 
 == Changelog ==
+
+= 2.3 =
+* Updated documentation to be displaying the correct information.
+* Code Cleanup
 
 = 2.0 =
 * Addition of wrap attribute
