@@ -8,6 +8,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A shortcode that includes other posts / pages with no nesting of the shortcode, to allow for multiple pages to call each other so that they display their chunks in different orders.
+It will also include an anchor tag before the included area, with the slug as it's anchor.
 
 == Description ==
 
@@ -30,6 +31,13 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
   * strict: only show first page, do not run `[include]` if it's included
   * weak: only filter out shortcodes with the same id as the current shortcode to prevent infinate loops
  * Default: weak
+
+*Depreciated Parameters*
+
+These parameters are depreciated, but still supported (for now).
+
+* title_wrapper_elem: old name for title
+* title_wrapper_class: old name for title_class
 
 *Example*
 
@@ -58,13 +66,20 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
   * weak: only filter out shortcodes with the same id as the current shortcode to prevent infinate loops
  * Default: weak
 
+*Depreciated Parameters*
+
+These parameters are depreciated, but still supported (for now).
+
+* title_wrapper_elem: old name for title
+* title_wrapper_class: old name for title_class
+
 Same as Include, except that if no ID is given, it includes all child pages of the current page, in order.
 If an ID is given it includes the child pages of that page, in order.
 
 = Future Plans =
 
 * TinyMCE Integration - Waiting on WP 3.9 (TinyMCE v4)
- * Buttons to create/edit shortcode
+ * Buttons to create/edit the include shortcode
  * Have the editor display included content, and update included pages on save
 * Add button/modal like "Add Media" to generate shortcodes for the user and place them in the editor
 
