@@ -3,9 +3,9 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 2.1
- * Author: mflynn, cngann, bmcsweeney
- * Author URI: http://cngann.com
+ * Version: 2.2
+ * Author: mflynn, cngann, Clear_Code, bmcsweeney
+ * Author URI: http://clearcode.info
  * License: GPL2
  */
 
@@ -125,7 +125,7 @@
 	/**
 	 * Include Children Shortcode
 	 *
-	 * Creates and returns the "include" shortcode
+	 * Creates and returns the "include_children" shortcode
 	 *
 	 * @since 2.0b
 	 * @author Brendan McSweeney
@@ -155,5 +155,3 @@
                 foreach( (array) $page_children as $page_child_id => $page_child ) $r .= do_shortcode("[include id=\"{$page_child_id}\" {$attributes_string}]");
                 return $r;
 	}
-
-?>

@@ -23,4 +23,3 @@
 		$atts = array_merge($include_atts, $arr);
 		return update_option('include_atts', $atts );
 	}
-?>

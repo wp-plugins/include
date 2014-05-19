@@ -1,11 +1,4 @@
 <?php
-        /*
-		function my_enqueue($hook) {
-		    if( 'include-plugin' != $hook ) return;
-		    wp_enqueue_style( 'my_custom_script', plugin_dir_url( __FILE__ ) . '/style.css' );
-		}
-		add_action( 'admin_enqueue_scripts', 'my_enqueue' );
-        */
         add_action( 'admin_menu', 'include_plugin_menu' );
 	function include_plugin_menu() {
 		add_submenu_page( "tools.php", "Include", "Include", "manage_options", "include-plugin", "include_plugin_options");
@@ -30,9 +23,7 @@
                     'hr' => 'Set to anything other than blank to insert a horizontal rule before included content.',
                     'wrap' => 'Element to wrap included content with.',
                     'wrap_class' => 'A class to assign to the wrap.'
-
                 );
-
 		?>
 			<div class="wrap">
                             <h2>Include Options</h2>
@@ -59,7 +50,5 @@
 					</table>
 				</form>
 			</div>
-
 		<?php
 	}
-?>

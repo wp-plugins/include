@@ -1,9 +1,9 @@
 === Include ===
-Contributors: mflynn, cngann
-Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get
+Contributors: mflynn, cngann, Clear_Code, bmcsweeney
+Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, 
 Requires at least: 2.5
-Tested up to: 3.9
-Stable tag: 2.1
+Tested up to: 3.9.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,12 +34,21 @@ A shortcode that includes other posts / pages with no nesting of the shortcode, 
 
 A shortcode that includes other posts / pages with no nesting of the shortcode, to allow for multiple pages to call each other so that they display their chunks in different orders.
 
+**Shortcode: `[include_children]`**
+
+Same as Include, except that if no ID is given, it includes all child pages of the current page, in order.
+If an ID is given it includes the child pages of that page, in order.
+
 = Future Plans =
 
 * TinyMCE Integration - Waiting on WP 3.9 (TinyMCE v4)
  * Buttons to create/edit shortcode
  * Have the editor display included content, and update included pages on save
 * Add button/modal like "Add Media" to generate shortcodes for the user and place them in the editor
+
+== Screenshots ==
+
+1. The Include Plugin default Options Panel.  Set the default options for the includes here.
 
 == Changelog ==
 
