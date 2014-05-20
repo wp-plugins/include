@@ -3,7 +3,7 @@ Contributors: mflynn, cngann, Clear_Code, bmcswee
 Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, 
 Requires at least: 2.5
 Tested up to: 3.9.1
-Stable tag: 2.3
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,9 @@ If an ID is given it includes the child pages of that page, in order.
 1. The Include Plugin default Options Panel.  Set the default options for the includes here.  Located at Tools > Include
 
 == Changelog ==
+
+= 2.4 =
+* Fix for 2.3 array bug
 
 = 2.3 =
 * Updated documentation to be displaying the correct information.
