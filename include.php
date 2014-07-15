@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 2.4
+ * Version: 2.5
  * Author: mflynn, cngann, Clear_Code, bmcswee
  * Author URI: http://clearcode.info
  * License: GPL2
@@ -77,9 +77,10 @@
 	 * @return string The shortcode content
 	 */
 	function include_shortcode ($atts, $content){
-		global $include_included, $include_atts, $wpdb, $post, $wp_query; 					// Get Globals
+		global $include_included, $wpdb, $post, $wp_query; 							// Get Globals
 		$r = ""; 												// Set the return variable
 		$include_included[get_the_ID()] = true; 								// Put the current page ID into the list of included pages
+		$include_atts = include_get_options();
 		extract( shortcode_atts( $include_atts, $atts, 'include' ) ); 						// Get the attributes
 		
 		$title = !empty($title_wrapper_elem) ? $title_wrapper_elem : $title;
@@ -114,8 +115,9 @@
 	 * @author Brendan McSweeney
 	 */
 	function include_children_shortcode ($atts, $content){
-		global $include_included, $include_atts, $wpdb, $post, $wp_query; 					// Get Globals
+		global $include_included, $wpdb, $post, $wp_query;		 					// Get Globals
 		$r = ""; 												// Set the return variable
+		$include_atts = include_get_options();
 		$include_children_atts = shortcode_atts( $include_atts, $atts, 'include_children' );
 		extract( $include_children_atts ); 									// Get the attributes
 		if($id &&  ! id_exists( $id )) return $r; 								// If ID is incorrect, don't continue
