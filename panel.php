@@ -13,7 +13,7 @@
 		if ( !current_user_can( 'manage_options' ) )  { wp_die( __( 'You do not have sufficient permissions to access this page.' ) ); }
 		if(!empty($_POST["include_form_submit"]) && $_POST["include_form_submit"] == "y" && include_set_options($_POST['include_options'])) echo "<div class='updated'><p>Updated Successfully</p></div>";
 		$options = include_get_options();
-                $recursion_types = ["strict", "weak"];
+                $recursion_types = array("strict", "weak");
                 global $include_option_tips;
 		echo "<div class='wrap'><h2>Include Options</h2><form action='' method='post'><input type='hidden' name='include_form_submit' value='y'><table class='form-table'><tbody>";
 		foreach($options as $optname => $optvalue) {

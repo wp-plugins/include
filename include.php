@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 2.3
+ * Version: 2.5
  * Author: mflynn, cngann, Clear_Code, bmcswee
  * Author URI: http://clearcode.info
  * License: GPL2
@@ -17,7 +17,7 @@
 	 * @var array An array of posts currently included to prevent infinate loops
 	 * @global array $include_included
 	 */
-	$include_included = [];
+	$include_included = array();
 
 	/**
 	 * Default Include Shortcode Attributes
@@ -27,7 +27,7 @@
 	 * @var array An array containing the default attributes for the Include Shortcode
 	 * @global array $include_atts
 	 */
-	$include_atts = [
+	$include_atts = array(
 		'id' 		=> false,									// (required) The Page/Post Id to Include.  Default: none. Not required if slug is set.
 		'slug' 		=> false,									// (optional) The Page/Post Slug to Include. Not recomended as slugs can change.
 		'title' 	=> 'h2',									// (optional) Title Wrapper Element. Default: h2.
@@ -36,7 +36,7 @@
 		'hr' 		=> '',    									// (optional) Display a hr element before the include.  Set to "" to not show the hr.
                 'wrap' 		=> 'div',                                               			// (optional) element to wrap the entire include in.
                 'wrap_class' 	=> 'included'    								// (optional) class assigned to the wrap. Default: included.
-        ];
+        );
 	
 	/**
 	 * Default Include Shortcode Attributes
@@ -46,14 +46,14 @@
 	 * @var array An array containing the tips for the options panel
 	 * @global array $include_option_tips
 	 */
-	$include_option_tips = [
+	$include_option_tips = array(
 		'title'		=> 'The type of element to wrap the title with.',
 		'title_class' 	=> 'A class to assign to the title wrap.',
 		'recursion' 	=> 'Strict will not run the shortcode on included child pages.',
 		'hr' 		=> 'Set to anything other than blank to insert a horizontal rule before included content.',
 		'wrap'		=> 'Element to wrap included content with.',
 		'wrap_class'	=> 'A class to assign to the wrap.'
-        ];
+        );
 	
 	add_shortcode('include', 'include_shortcode');
         add_shortcode('include_children', 'include_children_shortcode');
@@ -77,9 +77,10 @@
 	 * @return string The shortcode content
 	 */
 	function include_shortcode ($atts, $content){
-		global $include_included, $include_atts, $wpdb, $post, $wp_query; 					// Get Globals
+		global $include_included, $wpdb, $post, $wp_query; 							// Get Globals
 		$r = ""; 												// Set the return variable
 		$include_included[get_the_ID()] = true; 								// Put the current page ID into the list of included pages
+		$include_atts = include_get_options();
 		extract( shortcode_atts( $include_atts, $atts, 'include' ) ); 						// Get the attributes
 		
 		$title = !empty($title_wrapper_elem) ? $title_wrapper_elem : $title;
@@ -114,8 +115,9 @@
 	 * @author Brendan McSweeney
 	 */
 	function include_children_shortcode ($atts, $content){
-		global $include_included, $include_atts, $wpdb, $post, $wp_query; 					// Get Globals
+		global $include_included, $wpdb, $post, $wp_query;		 					// Get Globals
 		$r = ""; 												// Set the return variable
+		$include_atts = include_get_options();
 		$include_children_atts = shortcode_atts( $include_atts, $atts, 'include_children' );
 		extract( $include_children_atts ); 									// Get the attributes
 		if($id &&  ! id_exists( $id )) return $r; 								// If ID is incorrect, don't continue
