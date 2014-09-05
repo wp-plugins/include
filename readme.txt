@@ -7,8 +7,7 @@ Stable tag: 2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A shortcode that includes other posts / pages with no nesting of the shortcode, to allow for multiple pages to call each other so that they display their chunks in different orders.
-It will also include an anchor tag before the included area, with the slug as it's anchor.
+Include one Page or Post into another.
 
 == Description ==
 
