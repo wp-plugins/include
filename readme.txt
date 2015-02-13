@@ -1,6 +1,6 @@
 === Include ===
 Contributors: mflynn, cngann, Clear_Code, bmcswee
-Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, 
+Tags: shortcodes, page, post, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, fetch, content,
 Requires at least: 2.5
 Tested up to: 4.0
 Stable tag: 2.5
