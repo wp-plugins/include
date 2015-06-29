@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 2.6
+ * Version: 3.0
  * Author: mflynn, cngann, Clear_Code, bmcswee
  * Author URI: http://clearcode.info
  * License: GPL2
@@ -34,8 +34,8 @@ $include_atts = array(
 	'title_class' 	=> '',										// (optional) Class of Title Wrapper Element. Default: none.
 	'recursion' 	=> 'weak',									// (optional) Recursion Setting.  Options: strong or weak. Default: weak
 	'hr' 			=> '',    									// (optional) Display a hr element before the include.  Set to "" to not show the hr.
-	'wrap' 			=> 'div',                                               			// (optional) element to wrap the entire include in.
-	'wrap_class' 	=> 'included'    								// (optional) class assigned to the wrap. Default: included.
+	'wrap' 			=> 'div',                                   // (optional) element to wrap the entire include in.
+	'wrap_class' 	=> 'included'    							// (optional) class assigned to the wrap. Default: included.
 );
 
 /**
@@ -93,8 +93,15 @@ function include_shortcode ($atts, $content){
 	if($include_included[$id] === true)  return $r; //return $r . var_export($include_included, true); 								// If page is already included, don't include it again
 	$include_included[$id] = true; 										// Mark the page as included
 	$op = clone $wp_query; 											// Back up the $wp_query object
-	query_posts(array('page_id' => $id));
+
+	$post_type = $wpdb->get_var("SELECT post_type FROM {$wpdb->posts} WHERE ID = '{$id}'");
+
+	if ($post_type == 'page') query_posts(array('page_id' => $id));
+	else if ($post_type == 'post') query_posts(array('p' => $id));
+	else return $r;
+
 	the_post();
+
 	$c = get_the_content();
 	$c = strtolower($recursion) == "strict" ? preg_replace( "/\[include[^\]]*\]/im", "", $c ) : $c;
 	$c = "<a class='anchor' name='{$post->post_name}'></a>" . apply_filters('the_content',$c);
