@@ -92,13 +92,12 @@ function include_shortcode ($atts, $content){
 	if(empty($include_included[$id])) $include_included[$id] = false; 						// Shutting up php Notices
 	if($include_included[$id] === true)  return $r; //return $r . var_export($include_included, true); 								// If page is already included, don't include it again
 	$include_included[$id] = true; 										// Mark the page as included
-	$op = clone $wp_query; 											// Back up the $wp_query object
+	$op = clone $wp_query; 												// Back up the $wp_query object
 
 	$post_type = $wpdb->get_var("SELECT post_type FROM {$wpdb->posts} WHERE ID = '{$id}'");
 
 	if ($post_type == 'page') query_posts(array('page_id' => $id));
-	else if ($post_type == 'post') query_posts(array('p' => $id));
-	else return $r;
+	else query_posts(array('p' => $id));
 
 	the_post();
 

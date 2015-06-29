@@ -88,6 +88,9 @@ If an ID is given it includes the child pages of that page, in order.
 
 == Changelog ==
 
+= 3.1 =
+* Fixed bug: Lack of support for custom post types.
+
 = 3.0 =
 * Fixed bug: Not working for posts.  Thanks to stovesy for the code.
 
@@ -135,6 +138,9 @@ If an ID is given it includes the child pages of that page, in order.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Upgrade Notice ==
+
+= 3.1 =
+* Fixed bug: Lack of support for custom post types.
 
 = 3.0 =
 * Now works with Posts again.
