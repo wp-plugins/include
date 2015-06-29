@@ -1,9 +1,9 @@
 === Include ===
 Contributors: mflynn, cngann, Clear_Code, bmcswee
-Tags: shortcodes, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, 
+Tags: shortcodes, page, post, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, fetch, content,
 Requires at least: 2.5
-Tested up to: 4.0
-Stable tag: 2.5
+Tested up to: 4.2
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,12 @@ If an ID is given it includes the child pages of that page, in order.
 
 == Changelog ==
 
+= 3.0 =
+* Fixed bug: Not working for posts.  Thanks to stovesy for the code.
+
+= 2.6 =
+* Fixed bug: Multiple instance of the same include failing.
+
 = 2.5 = 
 * Fix for sizable bug.  Settings panel didn’t do anything… Now it does.
 
@@ -127,3 +133,8 @@ If an ID is given it includes the child pages of that page, in order.
 = 1.0 =
 * First Check-In
 1. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Upgrade Notice ==
+
+= 3.0 =
+* Now works with Posts again.
