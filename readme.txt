@@ -2,7 +2,7 @@
 Contributors: mflynn, cngann, Clear_Code, bmcswee
 Tags: shortcodes, page, post, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, fetch, content,
 Requires at least: 2.5
-Tested up to: 4.2
+Tested up to: 4.2.2
 Stable tag: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
