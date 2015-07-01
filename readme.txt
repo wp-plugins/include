@@ -3,7 +3,7 @@ Contributors: mflynn, cngann, Clear_Code, bmcswee
 Tags: shortcodes, page, post, posts, pages, the loop, include, include other post, include other pages, loop, get, utilities, fetch, content,
 Requires at least: 2.5
 Tested up to: 4.2.2
-Stable tag: 3.1
+Stable tag: 3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,10 @@ If an ID is given it includes the child pages of that page, in order.
 
 == Changelog ==
 
+= 3.2 =
+* Fixed Bug: Title remained constant across multiple includes.  Thanks for the report and solution by: isundil.
+* Removed comments that were basically notes from initial Development
+
 = 3.1 =
 * Fixed bug: Lack of support for custom post types.
 
@@ -138,6 +142,9 @@ If an ID is given it includes the child pages of that page, in order.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Upgrade Notice ==
+
+= 3.2 =
+* Fixed Bug: Title remained constant across multiple includes.
 
 = 3.1 =
 * Fixed bug: Lack of support for custom post types.

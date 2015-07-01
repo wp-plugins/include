@@ -3,7 +3,7 @@
  * Plugin Name: Include
  * Plugin URI: http://wordpress.org/plugins/include/
  * Description: Include a page, post, activity, or other query-object into another.
- * Version: 3.1
+ * Version: 3.2
  * Author: mflynn, cngann, Clear_Code, bmcswee
  * Author URI: http://clearcode.info
  * License: GPL2
@@ -77,39 +77,33 @@ require_once('panel.php');
  * @return string The shortcode content
  */
 function include_shortcode ($atts, $content){
-	global $include_included, $wpdb, $post, $wp_query; 							// Get Globals
-	$r = ""; 																// Set the return variable
-	//$include_included[get_the_ID()] = true; 								// Put the current page ID into the list of included pages
+	global $include_included, $wpdb, $post, $wp_query;
+	$r = "";
 	$include_atts = include_get_options();
-	extract( shortcode_atts( $include_atts, $atts, 'include' ) ); 						// Get the attributes
-
+	extract( shortcode_atts( $include_atts, $atts, 'include' ) );
 	$title = !empty($title_wrapper_elem) ? $title_wrapper_elem : $title;
 	$title_class = !empty($title_wrapper_class) ? $title_wrapper_class : $title_class;
-	if($id &&  ! id_exists( $id ))  return $r; 								// If ID is incorrect, don't continue
-	else if(!$id && !$slug) return $r;  									// If no viable include parameters, don't continue
-	else if($slug) $id = $wpdb->get_var("SELECT ID FROM {$wpdb->posts} WHERE post_name = '{$slug}'");	// If $slug is used instead of $id, Get the ID
-	if(!$id) return $r; 											// If no ID set, don't continue
-	if(empty($include_included[$id])) $include_included[$id] = false; 						// Shutting up php Notices
-	if($include_included[$id] === true)  return $r; //return $r . var_export($include_included, true); 								// If page is already included, don't include it again
-	$include_included[$id] = true; 										// Mark the page as included
-	$op = clone $wp_query; 												// Back up the $wp_query object
-
+	if($id &&  ! id_exists( $id ))  return $r;
+	else if(!$id && !$slug) return $r;
+	else if($slug) $id = $wpdb->get_var("SELECT ID FROM {$wpdb->posts} WHERE post_name = '{$slug}'");
+	if(!$id) return $r;
+	if(empty($include_included[$id])) $include_included[$id] = false;
+	if($include_included[$id] === true)  return $r;
+	$include_included[$id] = true;
+	$op = clone $wp_query;
 	$post_type = $wpdb->get_var("SELECT post_type FROM {$wpdb->posts} WHERE ID = '{$id}'");
-
 	if ($post_type == 'page') query_posts(array('page_id' => $id));
 	else query_posts(array('p' => $id));
-
 	the_post();
-
 	$c = get_the_content();
 	$c = strtolower($recursion) == "strict" ? preg_replace( "/\[include[^\]]*\]/im", "", $c ) : $c;
 	$c = "<a class='anchor' name='{$post->post_name}'></a>" . apply_filters('the_content',$c);
-	$c = ( $hr ? "<hr />" : "" ) . ( $title ? "<{$title} class='{$title_class}' >".get_the_title()."</{$title}>":"") . $c;
+	$c = ( $hr ? "<hr />" : "" ) . ( $title ? "<{$title} class='{$title_class}' >".get_the_title($id)."</{$title}>":"") . $c;
 	$r = $wrap ? "<{$wrap} class='{$wrap_class}' >{$c}</{$wrap}>" : $c;
-	$wp_query = clone $op; 											// Reset the $wp_query Object
-	setup_postdata($post); 											// Reset the $post object
-	$include_included[$id] = false; 						// Remove the Included post from the List of Includes
-	return $r;												// Return the completed content
+	$wp_query = clone $op;
+	setup_postdata($post);
+	$include_included[$id] = false;
+	return $r;
 }
 
 /**
@@ -121,18 +115,18 @@ function include_shortcode ($atts, $content){
  * @author Brendan McSweeney
  */
 function include_children_shortcode ($atts, $content){
-	global $include_included, $wpdb, $post, $wp_query;		 					// Get Globals
-	$r = ""; 												// Set the return variable
+	global $include_included, $wpdb;
+	$r = "";
 	$include_atts = include_get_options();
 	$include_children_atts = shortcode_atts( $include_atts, $atts, 'include_children' );
-	extract( $include_children_atts ); 									// Get the attributes
-	if($id &&  ! id_exists( $id )) return $r; 								// If ID is incorrect, don't continue
-	else if($slug) $id = $wpdb->get_var("SELECT ID FROM {$wpdb->posts} WHERE post_name = '{$slug}'");	// If $slug is used instead of $id, Get the ID
-	if(!$id) $id = get_the_ID(); 										// If no ID set, Get the ID of the current page
+	extract( $include_children_atts );
+	if($id &&  ! id_exists( $id )) return $r;
+	else if($slug) $id = $wpdb->get_var("SELECT ID FROM {$wpdb->posts} WHERE post_name = '{$slug}'");
+	if(!$id) $id = get_the_ID();
 	if(!$id) return $r;
-	if(empty($include_included[$id])) $include_included[$id] = ''; 						// Shutting up php Notices
-	if($include_included[$id] === true) return $r; 								// If page is already included, don't include it again
-	$include_included[$id] = true; 										// Mark the page as included
+	if(empty($include_included[$id])) $include_included[$id] = '';
+	if($include_included[$id] === true) return $r;
+	$include_included[$id] = true;
 	if($wrap == true) $wrap = "div";
 	$attributes_string = "";
 	unset($include_children_atts['id'], $include_children_atts['slug']);
